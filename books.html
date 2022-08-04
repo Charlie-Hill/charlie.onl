@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading List - charlie.onl</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+      html, body {
+          background-color: #3083b6;
+          font-family: 'Varela Round', sans-serif;
+      }
+  </style>
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.x.x/dist/alpine.min.js" defer></script>
+</head>
+<body>
+
+    <body class="flex">
+        <div
+        x-data="page()"
+        class="flex mx-auto flex-col items-center px-8 md:px-32 py-24"
+      >
+
+      <div
+    x-data="{ posts: [] }"
+    x-init="posts = await (await fetch('./data/readinglist.yaml')).json();console.log(posts)">
+      <span x-text="posts">
+    </div>
+
+    </body>
+
+    <script>
+        function page() {
+          return {
+            selectedType: "examples"
+          }
+        }
+      </script>
+</body>
+</html>
