@@ -16,3 +16,4 @@ This is my portfolio site built entirely from scratch to compile & present work,
 
 - Developer Extensions:
     - [Alpine.js devtools](https://chrome.google.com/webstore/detail/alpinejs-devtools/fopaemeedckajflibkpifppcankfmbhk/related)
+    - [Insomnia HTTP REST client](https://insomnia.rest/)
