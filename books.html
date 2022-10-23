@@ -17,41 +17,56 @@
           background-color: #3083b6;
           font-family: 'Varela Round', sans-serif;
       }
-  </style>
+    </style>
 
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js" integrity="sha512-CSBhVREyzHAjAFfBlIBakjoRUKp5h7VSweP0InR/pAJyptH7peuhCsqAI/snV+TwZmXZqoUklpXp6R6wMnYf5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
+  </head>
 <body>
 
     <body class="flex">
-      <a href="/">Home</a>
-
+      <a class="pl-2 text-green-200 hover:text-green-400" href="/">🏠Home🏠</a>
+      
       <div class="flex mx-auto flex-col items-center px-8 md:px-32 py-24">
 
-        <ul x-data="init()" x-init="fetchReadingList()">
-          <code x-text="JSON.stringify(readingListData)"></code>
-          <template x-for="book in readingListData" :key="book.id">
-            <li>-<span x-text="book.title"></span></li>
+        <h1 class="font-bold mb-2">Reading List</h1>
+
+        <div x-data="init()" x-init="fetchReadingList()">
+          <template x-for="book in readingListData">
+            <div>
+              <div class="mt-5 font-bold" x-text="book.title"></div>
+              <div x-text="book.isbn"></div>
+              <code x-text="JSON.stringify(book)"></code>
+              <img :src="`https://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg`" alt="">
+            </div>
           </template>
-        </ul>
+        </div>
       </div>
     </body>
 
     <script type="text/javascript">
       function init() {
         return {
-          readingListData: [],
+          loaded: false,
+          readingListData: {},
           fetchReadingList() {
             fetch(`./data/readinglist.yaml`)
-            .then(res => res.text())
-            .then(data => this.readingListData = jsyaml.load(data));
+              .then(res => res.text())
+              .then(data => {
+                this.readingListData = jsyaml.load(data)
+
+                this.readingListData.forEach(i => {
+                  fetch(`https://openlibrary.org/isbn/${i.isbn}.json`).then(res => res.json()).then(data => {
+                    i.info = data;
+                    this.fetchCover()
+                  })
+                })
+
+                this.loaded = true
+
+              });
           }
         }
-      }
-
-      function fetchBook(isbn) {
-        console.log("Not yet implemented")
       }
     </script>
 </body>
