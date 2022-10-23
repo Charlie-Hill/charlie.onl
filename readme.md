@@ -9,7 +9,7 @@ This is my portfolio site built entirely from scratch to compile & present work,
     - [nodeca/js-yaml](https://github.com/nodeca/js-yaml)
 
 - Services Used:
-    - [OpenLibrary](https://openlibrary.org/)
+    - [OpenLibrary](https://openlibrary.org/) to fetch information & cover images for books via ISBN number
 
 - Deployed On:
     - TODO: **Details of deployment here**
