@@ -1,11 +1,13 @@
 # Portfolio Site
-This is my portfolio site built entirely from scratch
+This is my portfolio site built entirely from scratch to compile & present work, projects and more.
 
 # Tech Stack
-- Built with HTML, CSS & JavaScript
+- Webpages built with HTML, CSS & JavaScript
 - Libraries Used:
-    - AlpineJS
-    - TailwindCSS
+    - [Alpine.js](https://alpinejs.dev/essentials/installation)
+    - [Tailwind CSS](https://tailwindcss.com/)
+    - [nodeca/js-yaml](https://github.com/nodeca/js-yaml)
+
 
 - Deployed On:
-    - **Details of deployment here**
+    - TODO: **Details of deployment here**
