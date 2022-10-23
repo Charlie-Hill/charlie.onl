@@ -6,6 +6,7 @@
     - Finance
     - Economics
     - Stocks & Shares
+    - UK Equity
 
 - title: "Make: Getting Started with p5.js"
   isbn: 9781457186776
@@ -34,3 +35,58 @@
   tags:
     - Non-Fiction
     - Economics 
+
+- title: "Freakonomics"
+  isbn: 9780141019017
+  complete: true
+  tags:
+    - Non-Fiction
+    - Economics
+    - Macroeconomics
+
+- title: "Shares Made Simple, 3rd Edition: A Beginner's Guide to the Stock Market"
+  isbn: 9780857197092
+  complete: true
+  tags:
+    - Investing
+    - Finance
+    - Economics
+    - Stocks & Shares
+    - UK Equity
+    - Beginners
+
+- title: "Full-Stack Vue.js 2 and Laravel 5: Bring the frontend and backend together with Vue, Vuex, and Laravel"
+  isbn: 1788299582
+  complete: false
+  tags:
+    - Programming
+    - Web Development
+    - Reference
+
+- title: "Effective TypeScript: 62 Specific Ways to Improve Your TypeScript"
+  isbn: 1492053740
+  complete: false
+  tags:
+    - Programming
+    - Web Development
+    - Reference
+
+- title: "Get Started in Shares: Trading For The First-Time Investor"
+  isbn: 9780273771227
+  complete: true
+  tags:
+    - Investing
+    - Finance
+    - Economics
+    - Stocks & Shares
+    - UK Equity
+    - Beginners
+
+- title: Free Capital
+  isbn: 9780857198822
+  complete: false
+  tags:
+    - Biography
+    - UK Equity
+    - Stocks & Shares
+    - Spreadbetting
