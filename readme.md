@@ -1,5 +1,5 @@
 # Portfolio Site
-This is my portfolio site built entirely from scratch to compile & present work, projects and more.
+This is my portfolio site built entirely from scratch to compile & present work, projects and more. [https://charlie.onl](See the site here).
 
 # Tech Stack
 - Webpages built with HTML, CSS & JavaScript
