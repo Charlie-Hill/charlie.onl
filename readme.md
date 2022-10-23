@@ -2,7 +2,7 @@
 This is my portfolio site built entirely from scratch to compile & present work, projects and more. [See the site here](https://charlie.onl).
 
 # Tech Stack
-- Webpages built with HTML, CSS & JavaScript
+- Webpages built with vanilla HTML, CSS & JavaScript
 - Libraries Used:
     - [Alpine.js](https://alpinejs.dev/essentials/installation)
     - [Tailwind CSS](https://tailwindcss.com/)
