@@ -20,29 +20,39 @@
   </style>
 
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js" integrity="sha512-CSBhVREyzHAjAFfBlIBakjoRUKp5h7VSweP0InR/pAJyptH7peuhCsqAI/snV+TwZmXZqoUklpXp6R6wMnYf5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
 
     <body class="flex">
-        <div
-        x-data="page()"
-        class="flex mx-auto flex-col items-center px-8 md:px-32 py-24"
-      >
+      <a href="/">Home</a>
 
-      <div
-    x-data="{ posts: [] }"
-    x-init="posts = await (await fetch('./data/readinglist.yaml')).json();console.log(posts)">
-      <span x-text="posts">
-    </div>
+      <div class="flex mx-auto flex-col items-center px-8 md:px-32 py-24">
 
+        <ul x-data="init()" x-init="fetchReadingList()">
+          <code x-text="JSON.stringify(readingListData)"></code>
+          <template x-for="book in readingListData" :key="book.id">
+            <li>-<span x-text="book.title"></span></li>
+          </template>
+        </ul>
+      </div>
     </body>
 
-    <script>
-        function page() {
-          return {
-            selectedType: "examples"
+    <script type="text/javascript">
+      function init() {
+        return {
+          readingListData: [],
+          fetchReadingList() {
+            fetch(`./data/readinglist.yaml`)
+            .then(res => res.text())
+            .then(data => this.readingListData = jsyaml.load(data));
           }
         }
-      </script>
+      }
+
+      function fetchBook(isbn) {
+        console.log("Not yet implemented")
+      }
+    </script>
 </body>
 </html>

@@ -1,7 +1,6 @@
-# - name: "How To Pick Quality Shares"
-#   isbn: 9780857195340
 - title: How To Pick Quality Shares
   isbn: 9780857195340
+  complete: true
   tags:
     - Investing
     - Finance
@@ -10,11 +9,10 @@
 
 - title: "Make: Getting Started with p5.js"
   isbn: 1457186772
+  complete: true
   tags:
     - Coding
     - Javascript
     - Canvas
     - Graphics & Geometry
-  # by:
-  #   name: devmode.fm
-  #   url: https://devmode.fm
+    - Reference
