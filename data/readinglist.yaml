@@ -8,7 +8,7 @@
     - Stocks & Shares
 
 - title: "Make: Getting Started with p5.js"
-  isbn: 1457186772
+  isbn: 9781457186776
   complete: true
   tags:
     - Coding
@@ -16,3 +16,21 @@
     - Canvas
     - Graphics & Geometry
     - Reference
+
+- title: "If It's Raining in Brazil, Buy Starbucks"
+  isbn: 9780071433198
+  complete: false
+  tags:
+    - Investing
+    - Finance
+    - Macroeconomics
+    - Economics
+    - Stocks & Shares
+    - US Equity
+
+- title: "Thinking, Fast & Slow"
+  backlog: true
+  isbn: 9780141033570
+  tags:
+    - Non-Fiction
+    - Economics 
