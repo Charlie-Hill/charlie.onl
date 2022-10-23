@@ -14,6 +14,7 @@ This is my portfolio site built entirely from scratch to compile & present work,
 - Deployed On:
     - TODO: **Details of deployment here**
 
-- Developer Extensions:
-    - [Alpine.js devtools](https://chrome.google.com/webstore/detail/alpinejs-devtools/fopaemeedckajflibkpifppcankfmbhk/related)
+- Developer Tools:
+    - [Alpine.js devtools Google Chrome extension](https://chrome.google.com/webstore/detail/alpinejs-devtools/fopaemeedckajflibkpifppcankfmbhk/related)
     - [Insomnia HTTP REST client](https://insomnia.rest/)
+    - [Visual Studio Code](https://code.visualstudio.com/)
