@@ -24,20 +24,30 @@
   </head>
 <body>
 
-    <body class="flex">
-      <a class="pl-2 text-green-200 hover:text-green-400" href="/">🏠Home🏠</a>
+  <body>
       
       <div class="flex mx-auto flex-col items-center px-8 md:px-32 py-24">
 
-        <h1 class="font-bold mb-2">Reading List</h1>
+        <div class="text-center w-full">
+          <h1 class="font-bold text-lg mb-2 text-white">Reading List</h1>
+          <div class="m-auto w-1/6 h-0.5 bg-green-200 mt-3 mb-2"></div>
+          <a class="pl-2 text-green-200 hover:text-green-400" href="/">🏠Home🏠</a>
+        </div>
 
-        <div x-data="init()" x-init="fetchReadingList()">
+        <div class="flex flex-wrap" x-data="init()" x-init="fetchReadingList()">
           <template x-for="book in readingListData">
-            <div>
-              <div class="mt-5 font-bold" x-text="book.title"></div>
-              <div x-text="book.isbn"></div>
-              <code x-text="JSON.stringify(book)"></code>
-              <img :src="`https://covers.openlibrary.org/b/isbn/${book.isbn}-L.jpg`" alt="">
+            <div class="cursor-pointer w-1/4">
+              <div class="">
+                <h4 class="mt-5 font-bold" x-text="book.title"></h4>
+                <div x-text="book.isbn"></div>
+              </div>
+
+              <template x-if="book.info.covers">
+                <img class="shadow-xl" :src="`https://covers.openlibrary.org/b/isbn/${book.isbn}-M.jpg`" alt="">
+              </template>
+              <template x-if="!book.info.covers">
+                <p>NO COVER</p>
+              </template>
             </div>
           </template>
         </div>
@@ -58,7 +68,6 @@
                 this.readingListData.forEach(i => {
                   fetch(`https://openlibrary.org/isbn/${i.isbn}.json`).then(res => res.json()).then(data => {
                     i.info = data;
-                    this.fetchCover()
                   })
                 })
 
