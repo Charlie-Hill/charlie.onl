@@ -1,7 +1,7 @@
-# Portfolio Site
+# Portfolio Site 💻
 This is my portfolio site built entirely from scratch to compile & present work, projects and more. [See the site here](https://charlie.onl).
 
-# Tech Stack
+# Tech Stack 🔧
 - Webpages built with vanilla HTML, CSS & JavaScript
 - Libraries Used:
     - [Alpine.js](https://alpinejs.dev/essentials/installation)
