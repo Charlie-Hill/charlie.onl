@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reading List - charlie.onl</title>
 
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="./assets/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="./assets/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="./assets/site.webmanifest">
+    <link rel="mask-icon" href="./assets/safari-pinned-tab.svg" color="#5bbad5">
+
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
@@ -34,7 +41,7 @@
           <a class="pl-2 text-green-200 hover:text-green-400" href="/">🏠Home🏠</a>
         </div>
 
-        <div class="flex flex-wrap" x-data="readingInit" x-init="init">
+        <div class="flex flex-wrap justify-center" x-data="readingInit" x-init="init">
           <template x-for="book in readingListData" x-show="loaded">
             <div class="cursor-pointer w-1/4">
               <div class="">
@@ -44,6 +51,10 @@
 
               <template x-if="book.covers">
                 <img class="shadow-xl" :src="`https://covers.openlibrary.org/b/isbn/${book.isbn}-M.jpg`" alt="">
+              
+                <div class="w-full bg-gray-200  dark:bg-gray-700">
+                  <div class="bg-green-600 text-xs font-medium text-green-100 text-center p-0.5 leading-none " style="width: 45%">XX/<span x-text="book.number_of_pages"></span></div>
+                </div>
               </template>
               <template x-if="!book.covers">
                 <p>NO COVER</p>
