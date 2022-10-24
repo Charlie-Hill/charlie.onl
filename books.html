@@ -34,18 +34,18 @@
           <a class="pl-2 text-green-200 hover:text-green-400" href="/">🏠Home🏠</a>
         </div>
 
-        <div class="flex flex-wrap" x-data="init()" x-init="fetchReadingList()">
-          <template x-for="book in readingListData">
+        <div class="flex flex-wrap" x-data="readingInit" x-init="init">
+          <template x-for="book in readingListData" x-show="loaded">
             <div class="cursor-pointer w-1/4">
               <div class="">
                 <h4 class="mt-5 font-bold" x-text="book.title"></h4>
                 <div x-text="book.isbn"></div>
               </div>
 
-              <template x-if="book.info.covers">
+              <template x-if="book.covers">
                 <img class="shadow-xl" :src="`https://covers.openlibrary.org/b/isbn/${book.isbn}-M.jpg`" alt="">
               </template>
-              <template x-if="!book.info.covers">
+              <template x-if="!book.covers">
                 <p>NO COVER</p>
               </template>
             </div>
@@ -55,26 +55,39 @@
     </body>
 
     <script type="text/javascript">
-      function init() {
-        return {
-          loaded: false,
-          readingListData: {},
-          fetchReadingList() {
-            fetch(`./data/readinglist.yaml`)
-              .then(res => res.text())
-              .then(data => {
-                this.readingListData = jsyaml.load(data)
+      const readingInit = {
+        loaded: false,
+        readingListData: [],
 
-                this.readingListData.forEach(i => {
-                  fetch(`https://openlibrary.org/isbn/${i.isbn}.json`).then(res => res.json()).then(data => {
-                    i.info = data;
-                  })
-                })
-
-                this.loaded = true
-
-              });
+        async init() {
+          const data = await this.fetchReadingList()
+          if (data) {
+            this.readingListData = data
           }
+        },
+
+        async fetchReadingList() {
+          const data = await fetch(`./data/readinglist.yaml`).then(res => res.text())
+          const yaml = jsyaml.load(data)
+
+          const books = yaml.map(async book => {
+            const bookInfo = await this.fetchBookInfo(book.isbn)
+            
+            const finalBook =  {
+              ...book,
+              ...bookInfo
+            }
+            return finalBook
+          })
+
+          const promisedData = await Promise.all(books)
+
+          return promisedData
+        },
+
+        async fetchBookInfo(isbn) {
+          const data = await fetch(`https://openlibrary.org/isbn/${isbn}.json`).then(res => res.json())
+          return data
         }
       }
     </script>
