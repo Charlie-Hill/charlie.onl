@@ -12,7 +12,8 @@ This is my portfolio site built entirely from scratch to compile & present work,
     - [OpenLibrary](https://openlibrary.org/) to fetch information & cover images for books via ISBN number
 
 - Deployed On:
-    - TODO: **Details of deployment here**
+    - Ubuntu dedicated server provided by [Kimsufi](https://kimsufi.com) running [Apache2](https://httpd.apache.org/) HTTP Server
+    - [Cloudflare](https://cloudflare.com) for DNS routing, Page Rules & SSL
 
 - Developer Tools:
     - [Alpine.js devtools](https://chrome.google.com/webstore/detail/alpinejs-devtools/fopaemeedckajflibkpifppcankfmbhk/related) - Google Chrome extension
