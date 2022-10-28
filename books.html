@@ -43,21 +43,23 @@
 
         <div class="flex flex-wrap justify-center" x-data="readingInit" x-init="init">
           <template x-for="book in readingListData" x-show="loaded">
-            <div class="cursor-pointer w-1/4">
-              <div class="">
+            <div class="relative cursor-pointer w-1/4 mb-4">
+              <div class="block relative px-2">
                 <h4 class="mt-5 font-bold" x-text="book.title"></h4>
-                <div x-text="book.isbn"></div>
+                <div x-text="book.isbn" title="ISBN"></div>
               </div>
 
               <template x-if="book.covers">
-                <img class="shadow-xl" :src="`https://covers.openlibrary.org/b/isbn/${book.isbn}-M.jpg`" alt="">
-              
-                <div class="w-full bg-gray-200  dark:bg-gray-700">
-                  <div class="bg-green-600 text-xs font-medium text-green-100 text-center p-0.5 leading-none " style="width: 45%">XX/<span x-text="book.number_of_pages"></span></div>
-                </div>
+                <a :href="`https://openlibrary.org/isbn/${book.isbn}`" target="_blank">
+                  <img class="shadow-xl" :src="`https://covers.openlibrary.org/b/isbn/${book.isbn}-M.jpg`" alt="">
+                  
+                  <div class="w-full bg-gray-200 dark:bg-gray-700">
+                    <div class="bg-green-600 text-xs font-medium text-green-100 text-center p-0.5 leading-none " style="width: 45%">XX/<span x-text="book.number_of_pages"></span></div>
+                  </div>
+                </a>
               </template>
               <template x-if="!book.covers">
-                <p>NO COVER</p>
+                <p class="text-center">NO COVER</p>
               </template>
             </div>
           </template>
