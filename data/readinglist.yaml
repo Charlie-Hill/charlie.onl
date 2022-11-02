@@ -1,6 +1,6 @@
 - title: How To Pick Quality Shares
   isbn: 9780857195340
-  complete: true
+  complete: false
   tags:
     - Investing
     - Finance
@@ -85,6 +85,8 @@
 - title: Free Capital
   isbn: 9780857198822
   complete: false
+  pagesRead: 65
+  number_of_pages: 312
   tags:
     - Biography
     - UK Equity
