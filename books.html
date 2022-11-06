@@ -53,12 +53,22 @@
                 <a :href="`https://openlibrary.org/isbn/${book.isbn}`" target="_blank">
                   <img class="shadow-xl" :src="`https://covers.openlibrary.org/b/isbn/${book.isbn}-M.jpg`" alt="">
                   
-                  <template x-if="book.pagesRead > 0 || book.complete">
+                  <template x-if="book.pagesRead > 0 && !book.complete">
                     <div class="w-full bg-gray-200 dark:bg-gray-700">
-                      <div class="bg-green-600 text-xs font-medium text-green-100 text-center p-0.5 leading-none " style="width: 45%">
+                      <div class="bg-yellow-600 text-xs font-medium text-yellow-100 text-center p-0.5 leading-none " style="width: 45%">
                         <span x-text="book.pagesRead"></span>
                         /
                         <span x-text="book.number_of_pages"></span></div>
+                    </div>
+                  </template>
+                  
+                  <template x-if="book.complete">
+                    <div class="w-full bg-gray-200 dark:bg-gray-700">
+                      <div class="bg-green-600 text-xs font-medium text-green-100 text-center p-0.5 leading-none " style="width: 100%">
+                        Finished (<span x-text="book.number_of_pages"></span> pages)
+                        <!-- <span x-text="book.pagesRead"></span>
+                        /
+                        <span x-text="book.number_of_pages"></span></div> -->
                     </div>
                   </template>
                 </a>
