@@ -19,3 +19,8 @@ This is my portfolio site built entirely from scratch to compile & present work,
     - [Alpine.js devtools](https://chrome.google.com/webstore/detail/alpinejs-devtools/fopaemeedckajflibkpifppcankfmbhk/related) - Google Chrome extension
     - [Insomnia](https://insomnia.rest/) - HTTP/REST client
     - [Visual Studio Code](https://code.visualstudio.com/)
+
+    - VS Code Extensions:
+        - [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+        - [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
+        - [Moonlight](https://marketplace.visualstudio.com/items?itemName=atomiks.moonlight) - (Moonlight II Theme)
