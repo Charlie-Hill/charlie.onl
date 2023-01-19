@@ -85,10 +85,20 @@
 - title: Free Capital
   isbn: 9780857198822
   complete: false
-  pagesRead: 65
+  pagesRead: 85
   number_of_pages: 312
   tags:
     - Biography
     - UK Equity
     - Stocks & Shares
     - Spreadbetting
+
+- title: Bear Market Investing Strategies
+  isbn: 9781838267322
+  complete: false
+  pagesRead: 1
+  tags:
+    - Stocks & Shares
+    - Investing
+    - Strategy
+    - Bear Markets
