@@ -14,8 +14,8 @@ This is my portfolio site built entirely from scratch to compile & present work,
 - Deployed On:
     - Currently deployed via [Vercel](https://vercel.com/)
         - Previously hosted on self-configured [AWS Lightsail](https://aws.amazon.com/lightsail/) instance running [Debian 11](https://www.debian.org/)
+        - Previously self-hosted on rented Ubuntu dedicated server provided by [Kimsufi](https://kimsufi.com) running [Apache2](https://httpd.apache.org/) HTTP Server
     - [Cloudflare](https://cloudflare.com) for DNS routing, Page Rules, SSL, Analytics & Site Protection
-    - Previously self-hosted on rented Ubuntu dedicated server provided by [Kimsufi](https://kimsufi.com) running [Apache2](https://httpd.apache.org/) HTTP Server
 
 - Developer Tools:
     - [Alpine.js devtools](https://chrome.google.com/webstore/detail/alpinejs-devtools/fopaemeedckajflibkpifppcankfmbhk/related) - Google Chrome extension
