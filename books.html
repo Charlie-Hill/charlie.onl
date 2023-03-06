@@ -111,7 +111,7 @@
 
           const books = yaml.map(async book => {
             const bookInfo = await this.fetchBookInfo(book.isbn)
-            
+              
             const finalBook =  {
               ...book,
               ...bookInfo
