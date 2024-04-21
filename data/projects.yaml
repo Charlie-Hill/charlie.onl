@@ -1,0 +1,5 @@
+- title: 'londonmarket.xyz'
+  description: 'A web-based equity focused finance terminal'
+  status: 'In Development'
+  thumbnail: 'assets/projects/londonmarket.png'
+  tags: ['finance', 'web', 'full-stack', 'laravel', 'vue']
