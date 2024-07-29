@@ -44,6 +44,28 @@
         .animate__animated.animate__fadeIn {
             --animate-duration: 3s;
         }
+        #tooltip {
+            display: block;
+            background-color: black;
+            color: white;
+            padding: 0 10px 0 10px;
+            border-radius: 5px;
+
+            position: absolute;
+            margin-bottom: 65px;
+        }
+        #tooltip::after {
+            content: '';
+            position: absolute;
+            bottom: -20px; /* Adjust this value based on the size of the triangle */
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 10px; /* This creates a triangle with a height and width of 10px */
+            border-style: solid;
+            border-color: black transparent transparent transparent; /* The triangle is black and points downwards */
+        }
+
+
     </style>
 </head>
 <body class="h-screen w-screen flex justify-center items-center">
@@ -58,23 +80,29 @@
         </div>
 
         <div class="flex flex-row justify-center items-center mt-10">
-            <a href="https://github.com/charlie-hill" class="mr-5" target="_blank" title="github">
+            <div id="tooltip">test</div>
+
+            <a href="https://github.com/charlie-hill" class="mr-5" target="_blank" title="github" data-tooltip="github">
                 <svg class="h-8 w-8 text-white hover:text-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
             </a>
 
-            <a href="https://www.instagram.com/realcharliehill/" target="_blank" class="mr-5" title="instagram">
+            <a href="https://www.instagram.com/realcharliehill/" target="_blank" class="mr-5" title="instagram" data-tooltip="instagram">
                 <svg class="h-8 w-8 text-white hover:text-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </a>
 
-            <a href="https://www.linkedin.com/in/charliehilluk/" target="_blank" class="mr-5" title="linkedin">
+            <a href="https://www.linkedin.com/in/charliehilluk/" target="_blank" class="mr-5" title="linkedin" data-tooltip="linkedin">
                 <svg class="h-8 w-8 text-white hover:text-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
             </a>
 
-            <a href="https://charlieuk.substack.com/" target="__blank" class="mr-5" title="substack">
+            <a href="https://www.flickr.com/photos/201133298@N02/" target="_blank" class="mr-5" title="flickr" data-tooltip="flickr">
+                <svg class="h-8 w-8 text-white hover:text-gray-300" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 223.996"><path fill="currentColor" d="M288.002 111.998C288.002 50.144 338.158 0 399.999 0 461.862 0 512 50.144 512 111.998c0 61.842-50.135 111.998-111.998 111.998-61.841 0-111.997-50.156-111.997-111.998h-.003zM0 111.998C0 50.144 50.135 0 111.998 0c61.841 0 111.997 50.147 111.997 111.998 0 61.842-50.156 111.998-111.997 111.998C50.138 223.996 0 173.84 0 111.998z"/></svg>
+            </a>
+
+            <a href="https://charlieuk.substack.com/" target="__blank" class="mr-5" title="substack" data-tooltip="substack">
                 <svg class="h-6 w-6 text-white hover:text-gray-300" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" ><path fill="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22.539 8.242H1.46V5.406h21.08zM1.46 10.812V24L12 18.11L22.54 24V10.812zM22.54 0H1.46v2.836h21.08z"/></svg>
             </a>
 
-            <a href="mailto:me@charlie.onl">
+            <a href="mailto:me@charlie.onl" data-tooltip="email"> 
                 <svg class="h-8 w-8 text-white hover:text-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             </a>
         </div>
@@ -102,6 +130,48 @@
             <span class="font-bold hover:text-gray-400">LinkedIn</span>
           </a>
     </footer>
+
+    <script>
+        const tooltipElement = document.getElementById('tooltip');
+
+        function load () {
+            mouseOver = function (e) {
+                e = e || window.event;
+                let target = e.target || e.srcElement;
+
+                // Find nearest anchor tag from hovered element DOM tree
+                while (target && target.tagName.toLowerCase() !== 'a') {
+                    target = target.parentElement;
+                }
+
+                if (!target)  // No anchor tag found
+                {
+                    tooltipElement.style.display = 'none';
+                    tooltipElement.innerHTML = '';
+                    return;
+                }
+
+                // If anchor tag has tooltip attribute, show tooltip
+                if (target.getAttribute('data-tooltip') !== null && target.getAttribute('data-tooltip') !== undefined) {
+                    const tooltipText = target.getAttribute('data-tooltip')
+                    tooltipElement.style.display = 'block'
+                    tooltipElement.innerHTML = tooltipText
+                    tooltipElement.style.left = e.clientX - 20 - (tooltipText.length * 2) + 'px';
+                }
+            };
+
+            if (document.body.addEventListener) {
+                // For modern browsers
+                document.body.addEventListener('mouseover', mouseOver, false);
+            } else {
+                // For IE8
+                document.body.attachEvent('onmouseover', mouseOver);
+            }
+        }
+
+        load();
+
+    </script>
 
 </body>
 </html>
