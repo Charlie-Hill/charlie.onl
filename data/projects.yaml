@@ -1,5 +1,29 @@
 - title: 'londonmarket.xyz'
-  description: 'A web-based equity focused finance terminal'
+  description: 'A web-based full stack equity focused finance terminal. Featuring price alerts, research scraping, daily summaries & data for over 16,000 equities.'
   status: 'In Development'
   thumbnail: 'assets/projects/londonmarket.png'
+  links:
+    - title: 'Visit Site'
+      link: 'https://londonmarket.xyz'
   tags: ['finance', 'web', 'full-stack', 'laravel', 'vue']
+
+- title: 'Classic Pong Game (Typescript p5.js game)'
+  description: 'A simple pong HTML5 game made using Typescript & P5js with a homebrew game engine with sound effects!'
+  status: 'Complete (occasionally updated)'
+  thumbnail: 'assets/projects/pong.png'
+  links:
+    - title: 'View Demo'
+      link: 'https://pong.charlie.onl'
+    - title: 'GitHub Repo'
+      link: 'https://github.com/Charlie-Hill/Pong-Game---Typescript-P5.js'
+  tags: ['pong', 'p5.js', 'typescript game engine', 'custom', 'pong-game', 'html5']
+
+- title: 'Raspberry Pi Zero W e-Paper Stock Ticker'
+  description: 'A Raspberry Pi stock ticker that cycles through selected stocks & displays price information with a Waveshare e-Paper display. Made with Python.'
+  status: 'Complete'
+  thumbnail: 'https://camo.githubusercontent.com/a34ad5390f9cc42e3db583d466b27f8ea879b8898abdc3dc4af73de2a6a49948/68747470733a2f2f692e696d6775722e636f6d2f534a544b5230622e6a706567'
+  links:
+    - title: 'GitHub Repo'
+      link: 'https://github.com/Charlie-Hill/ePaper-Stock-Ticker'
+    - title: 'YouTube Video Demo'
+      link: 'https://www.youtube.com/watch?v=EPe9F5etSSY'
