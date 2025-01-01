@@ -1,5 +1,5 @@
 - title: 'londonmarket.xyz'
-  description: 'A web-based full stack equity focused finance terminal. Featuring price alerts, research scraping, daily summaries & data for over 16,000 equities.'
+  description: 'A web-based equity focused finance terminal. Featuring equity screener, research scraping, daily summaries & data for over 16,000 equities.'
   status: 'In Development'
   thumbnail: 'assets/projects/londonmarket.png'
   links:
@@ -8,7 +8,7 @@
   tags: ['finance', 'web', 'full-stack', 'laravel', 'vue']
 
 - title: 'Classic Pong Game (Typescript p5.js game)'
-  description: 'A simple pong HTML5 game made using Typescript & P5js with a homebrew game engine with sound effects!'
+  description: 'A simple pong HTML5 game made using Typescript & P5js with a homebrew game engine featuring sound effects & "AI" player two!'
   status: 'Complete (occasionally updated)'
   thumbnail: 'assets/projects/pong.png'
   links:
@@ -27,3 +27,14 @@
       link: 'https://github.com/Charlie-Hill/ePaper-Stock-Ticker'
     - title: 'YouTube Video Demo'
       link: 'https://www.youtube.com/watch?v=EPe9F5etSSY'
+
+- title: 'charlie.onl (portfolio site)'
+  description: 'My portfolio site built entirely from scratch to compile & present work, projects and more'
+  status: 'Complete'
+  thumbnail: 'assets/projects/charlie.onl.png'
+  links:
+    - title: 'GitHub Repo'
+      link: 'https://github.com/Charlie-Hill/charlie.onl'
+
+# - title: 'PHP Markdown blog'
+#   description: ''
