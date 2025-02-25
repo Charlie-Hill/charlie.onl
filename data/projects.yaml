@@ -28,7 +28,15 @@
     - title: 'YouTube Video Demo'
       link: 'https://www.youtube.com/watch?v=EPe9F5etSSY'
 
-- title: 'charlie.onl (portfolio site)'
+- title: 'Personal Blog (blog.charlie.onl)'
+  description: 'Blogging site where I write up tutorials, articles or general thoughts. Made with PHP & all blog posts written in Markdown.'
+  status: 'Complete'
+  thumbnail: 'assets/projects/blog.charlie.onl.png'
+  links:
+    - title: 'Visit Site'
+      link: 'https://blog.charlie.onl'
+
+- title: 'Portfolio Website (charlie.onl)'
   description: 'My portfolio site built entirely from scratch to compile & present work, projects and more'
   status: 'Complete'
   thumbnail: 'assets/projects/charlie.onl.png'

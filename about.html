@@ -16,8 +16,8 @@
     <link rel="mask-icon" href="./assets/safari-pinned-tab.svg" color="#5bbad5">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
@@ -31,7 +31,7 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js" integrity="sha512-CSBhVREyzHAjAFfBlIBakjoRUKp5h7VSweP0InR/pAJyptH7peuhCsqAI/snV+TwZmXZqoUklpXp6R6wMnYf5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
-<body>
+<body onload="init()">
 
     <div class="flex mx-auto flex-col items-left px-8 md:px-32 py-24">
 
@@ -51,8 +51,8 @@
                 <div class="text-center">
                     <h2 class="text-2xl font-bold text-gray-800 mb-4">About Me</h2>
                     <p class="text-gray-700 text-md leading-relaxed max-w-3xl mx-auto">
-                        Hi, I'm Charlie. A 26-year-old software developer from the United Kingdom. I have been working as a professional developer for over seven years and have been programming as a hobbyist for over a decade.<br /><br />
-                        I'm currently employed designing, developing, and maintaining technical software for engineers. My role also involves sales activities (remotely & in-person across the globe) and client management.<br /><br />
+                        Hi, I'm Charlie. A 26-year-old software developer from the United Kingdom.<br /><br />
+                        I'm currently employed developing & designing technical software for engineers. My role also involves sales activities (remotely & in-person across the globe) and client management.<br /><br />
                     </p>
 
             <br />
@@ -71,6 +71,15 @@
                             Alternatively, you can visit my GitHub page 
                             <a href="https://github.com/charlie-hill" target="_blank" class="text-blue-600 hover:underline">here</a>.
                         </p>
+
+                        <div class="mt-5 opacity-0 transition-opacity ease-in duration-600" id="stats_panel">
+                            <h2 class="text-xl font-bold text-gray-800 mb-4">Stats</h2>
+                            <p class="text-gray-700">
+                                <span id="wpm" class="text-blue-500 font-bold"></span> Words per minute with 
+                                <span id="tests_completed" class="text-blue-500 font-bold"></span> tests completed 
+                                (via <a href="https://monkeytype.com/profile/CharlieUK" class="text-green-600 hover:text-green-400 hover:underline">MonkeyType</a>).
+                            </p>
+                        </div>
                     </div>
                 
                     <!-- Find Me Elsewhere Section -->
@@ -99,10 +108,27 @@
             </div>
             
         </div>
-    </div>
-            
 
-        </div>
     </div>
+
+    <script type="text/javascript">
+
+        async function init ()
+        {
+            const monkeyTypeURL = 'https://api.monkeytype.com/users/charlieuk/profile';
+            const data = await fetch(monkeyTypeURL).then(res => res.json());
+            if (data && data.message == 'Profile retrieved') {
+
+                const personalBestWPM = Math.round(data.data.personalBests.time[15][0].wpm);
+                const numberOfTestsCompleted = data.data.typingStats.completedTests;
+
+                document.getElementById('wpm').innerHTML = personalBestWPM;
+                document.getElementById('tests_completed').innerHTML = numberOfTestsCompleted.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+                document.getElementById('stats_panel').style.opacity = 1;
+            }
+        }
+
+    </script>
 
 </body>
