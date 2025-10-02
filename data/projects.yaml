@@ -7,6 +7,15 @@
       link: 'https://londonmarket.xyz'
   tags: ['finance', 'web', 'full-stack', 'laravel', 'vue']
 
+- title: 'Random Walk Capital (randomwalkcap.com)'
+  description: 'PHP powered fictional hedge-fund testing the "Random Walk Hypothesis". Daily random stock picks with initial capital of $50,000.'
+  status: 'Complete'
+  thumbnail: 'assets/projects/randomwalkcap.png'
+  links:
+    - title: 'Visit Site'
+      link: 'https://randomwalkcap.com'
+  tags: ['finance', 'web', 'hedge-fund', 'php']
+
 - title: 'Classic Pong Game (Typescript p5.js game)'
   description: 'A simple pong HTML5 game made using Typescript & P5js with a homebrew game engine featuring sound effects & "AI" player two!'
   status: 'Complete (occasionally updated)'
