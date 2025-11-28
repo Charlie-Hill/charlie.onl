@@ -37,6 +37,14 @@
     - title: 'YouTube Video Demo'
       link: 'https://www.youtube.com/watch?v=EPe9F5etSSY'
 
+- title: 'P5.js Typescript, Vite & Electron Boilerplate Starter Kit'
+  description: 'Boilerplate project that packages the p5.js library within a Typescript app that bundles with Vite and can be packaged as an Electron App'
+  status: 'Complete'
+  thumbnail: 'assets/projects/p5-electron-example.gif'
+  links:
+    - title: 'GitHub Repo'
+      link: 'https://github.com/Charlie-Hill/p5.js-Typescript-Electron-Vite-Boilerplate-Starter-Kit'
+
 - title: 'Personal Blog (blog.charlie.onl)'
   description: 'Blogging site where I write up tutorials, articles or general thoughts. Made with PHP & all blog posts written in Markdown.'
   status: 'Complete'
