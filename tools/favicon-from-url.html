@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon from URL Fetcher - charlie.onl</title>
+    <!-- Google ADSENSE -->
+    <meta name="google-adsense-account" content="ca-pub-7618416130407485">
+
+    <!-- SEO -->
+    <meta name="description" content="Fetch favicons from any website URL instantly. Get multiple favicon sizes and ready-to-use HTML code snippets for your website.">
+    <meta name="keywords" content="favicon generator, website favicon, favicon from URL, favicon images, HTML favicon code, website logos, brand icons, get favicon from url, favicon url, url to logo, get company logo, company logo from url">
+    <meta name="author" content="charlie.onl">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Favicon from URL Fetcher - charlie.onl">
+    <meta property="og:description" content="Easily fetch favicons and company logos from any website URL, with multiple sizes and ready-to-use HTML code snippets.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://charlie.onl/favicon-from-url">
+    <meta property="og:image" content="../assets/tools/favicon-from-url-preview.png">
+    <meta property="og:site_name" content="Charlie onl">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Favicon from URL Fetcher - charlie.onl">
+    <meta name="twitter:description" content="Quickly fetch favicons from any website with ready-to-use HTML snippets for your project.">
+    <meta name="twitter:image" content="../assets/tools/favicon-from-url-preview.png">
+
+    <link rel="canonical" href="https://charlie.onl/tools/favicon-from-url">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="./assets/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="./assets/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="./site.webmanifest">
+    <link rel="mask-icon" href="./assets/safari-pinned-tab.svg" color="#5bbad5">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+      html, body {
+          background-color: #3083b6;
+          font-family: 'Varela Round', sans-serif;
+      }
+    </style>
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Favicon from URL Fetcher",
+        "url": "https://charlie.onl/favicon-fetcher",
+        "description": "Fetch favicons from any website URL instantly. Get multiple favicon sizes and ready-to-use HTML code snippets for your website.",
+        "publisher": {
+            "@type": "Person",
+            "name": "Charlie onl"
+        }
+        }
+    </script>
+  </head>
+<body onload="init()">
+
+    <div class="flex mx-auto flex-col items-left px-8 md:px-32 py-24">
+
+        <div class="text-center w-full mb-5">
+            <h1 class="font-bold text-lg mb-2 text-white">Tools</h1>
+            <div class="m-auto w-1/6 h-0.5 bg-green-200 mt-3 mb-2"></div>
+            <a class="text-green-200 hover:text-green-400" href="../">🏠Home🏠</a>
+            <span class="text-white">|</span>
+            <a class="text-green-200 hover:text-green-400" href="https://blog.charlie.onl/" target="__blank">📝Blog📝</a>
+            <span class="text-white">|</span>
+            <a class="text-green-200 hover:text-green-400" href="../projects.html">📁Projects📁</a>
+            <span class="text-white">|</span>
+            <a class="text-green-200 hover:text-green-400" href="../about.html">🧑‍💻About🧑‍💻</a>
+        </div>
+
+        <div class="bg-blue-100 p-2 rounded-md">
+
+            <div class="mb-8">
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Favicon from URL Fetcher</h2>
+                </div>
+            <br />
+
+            <div>
+
+                <p class="text-gray-700 text-md leading-relaxed max-w-3xl mx-auto">
+                    This tool allows you to fetch the favicon of any website by entering its URL. Simply input the desired URL below and click "Fetch Favicon" to retrieve the favicon image along with the HTML code snippet to use it on your own site.
+                </p>
+                
+                <br />
+                
+                <form id="faviconForm" class="max-w-2xl mx-auto">
+                    <input type="text" id="websiteUrl" placeholder="Enter website URL (e.g., https://google.com)" required class="w-full p-2 border border-gray-300 rounded-md mb-4">
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Fetch Favicon</button>
+                </form>
+
+                <div id="result" class="mt-6 text-center"></div>
+                <div id="codeBlock" class="mt-3 text-center"></div>
+
+            </div>
+
+            <div class="mt-28 text-center max-w-4xl mx-auto bg-gray-500 bg-opacity-20 p-4 rounded-md">
+                <section class="mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                        How to Use This Favicon Generator
+                    </h3>
+
+                    <ol class="list-decimal list-inside text-gray-700 text-md leading-relaxed space-y-2">
+                        <li>Enter the full website URL you want to fetch a favicon from.</li>
+                        <li>Click the <strong>Fetch Favicon</strong> button.</li>
+                        <li>View the available favicon image sizes generated from the URL.</li>
+                        <li>Select a favicon size to update the HTML code snippet.</li>
+                        <li>Copy the generated HTML snippet and paste it into your website.</li>
+                    </ol>
+
+                    <img src="../assets/tools/favicon-from-url-preview.png" alt="example useage of the favicon from url tool" class="mt-4 border border-gray-300 shadow-md rounded-md">
+                </section>
+
+                <section class="mb-6">
+                    <p class="text-gray-700 text-md leading-relaxed">
+                        This free online tool helps you quickly obtain favicon images from any website URL.
+                        It provides ready-to-use HTML code snippets for including favicons in your website’s
+                        <code>&lt;head&gt;</code> section or for embedding favicon images directly into your pages.
+                        Ideal for developers, designers, and anyone working on modern web projects.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">
+                        Possible Uses
+                    </h3>
+
+                    <ul class="list-disc list-inside text-gray-700 text-md leading-relaxed space-y-2">
+                        <li><strong>Company Logos:</strong> Quickly fetch company logos directly from a URL.</li>
+                        <li><strong>Branding:</strong> Keep your site updated with the latest favicons from brands.</li>
+                        <li><strong>Reduced Data Usage:</strong> No need to host external favicon or logo images yourself.</li>
+                    </ul>
+                </section>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+
+        const sizeArray = [16, 32, 48, 64, 128, 256];
+
+        const googleURL = 'https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=[URL]&size=[SIZE]';
+
+        let selectedSize = '32';
+
+        document.getElementById('faviconForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let websiteUrl = document.getElementById('websiteUrl').value;
+            if (!checkUrlHasProtocol(websiteUrl)) {
+                websiteUrl = 'https://' + websiteUrl;
+                document.getElementById('websiteUrl').value = websiteUrl;
+            }
+            fetchFavicon(websiteUrl);
+        });
+
+        function fetchFavicon (url) {
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Fetching favicon...';
+
+            let imagesHtml = '';
+            sizeArray.forEach(size => {
+                const faviconUrl = googleURL.replace('[URL]', encodeURIComponent(url)).replace('[SIZE]', size);
+                imagesHtml += `<div class="inline-block m-2 text-center cursor-pointer" onclick="updateSize('${url}', ${size})">
+                                <img src="${faviconUrl}" alt="Favicon ${size}x${size}" class="border border-gray-300 p-1"><br>
+                                <span>${size}x${size}</span>
+                               </div>`;
+            });
+
+            resultDiv.innerHTML = `
+                <h3 class="text-lg font-bold mb-4">Favicon Images:</h3>
+                <div>${imagesHtml}</div>
+            `;
+
+            updateCodeBlock(url);
+        }
+
+        function updateCodeBlock (url) {
+            const faviconLink = `<link rel="icon" type="image/png" href="${googleURL.replace('[URL]', encodeURIComponent(url)).replace('[SIZE]', selectedSize)}" sizes="${selectedSize}x${selectedSize}">`;
+            const escapedFaviconLink = faviconLink.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+            const imgLink = `<img src="${googleURL.replace('[URL]', encodeURIComponent(url)).replace('[SIZE]', selectedSize)}" sizes="${selectedSize}x${selectedSize}">`;
+            const escapedImgLink = imgLink.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+            const codeBlockDiv = document.getElementById('codeBlock');
+            // <img> HTML
+            codeBlockDiv.innerHTML = `
+                <h3 class="text-lg font-bold mt-6 mb-2">HTML IMG Snippet:</h3>
+                <p class="text-sm front-light mt-3 mb-1">Click on each size to update the link for the size.</p>`;
+            codeBlockDiv.innerHTML += `<code class="text-sm sm:text-base inline-flex text-left items-center space-x-4 bg-gray-800 text-white rounded-lg p-4 pl-6">${escapedImgLink}</code>`;
+
+            // Favicon HTML
+            codeBlockDiv.innerHTML += `
+                <h3 class="text-lg font-bold mt-6 mb-2">HTML Favicon Snippet:</h3>
+                <p class="text-sm front-light mt-3 mb-1">Click on each size to update the link for the size.</p>`;
+            codeBlockDiv.innerHTML += `<code class="text-sm sm:text-base inline-flex text-left items-center space-x-4 bg-gray-800 text-white rounded-lg p-4 pl-6">${escapedFaviconLink}</code>`;
+        }
+
+        function checkUrlHasProtocol (url) {
+            return url.startsWith('http://') || url.startsWith('https://');
+        }
+
+        function updateSize (url, size) {
+            selectedSize = size;
+
+            updateCodeBlock(url);
+        }
+
+    </script>
+
+</body>

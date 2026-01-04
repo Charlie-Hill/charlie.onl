@@ -53,6 +53,14 @@
     - title: 'Visit Site'
       link: 'https://blog.charlie.onl'
 
+- title: 'Favicon image from URL'
+  description: 'Get a favicon image from URL, useful for obtaining images of company logos without needing download'
+  status: 'Complete'
+  thumbnail: 'assets/tools/favicon-from-url-preview.png'
+  links:
+    - title: 'View Tool'
+      link: '/tools/favicon-from-url.html'
+
 - title: 'Portfolio Website (charlie.onl)'
   description: 'My portfolio site built entirely from scratch to compile & present work, projects and more'
   status: 'Complete'
