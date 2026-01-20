@@ -30,7 +30,7 @@
 - title: 'Raspberry Pi Zero W e-Paper Stock Ticker'
   description: 'A Raspberry Pi stock ticker that cycles through selected stocks & displays price information with a Waveshare e-Paper display. Made with Python.'
   status: 'Complete'
-  thumbnail: 'https://camo.githubusercontent.com/a34ad5390f9cc42e3db583d466b27f8ea879b8898abdc3dc4af73de2a6a49948/68747470733a2f2f692e696d6775722e636f6d2f534a544b5230622e6a706567'
+  thumbnail: 'assets/projects/stock_ticker.jpg'
   links:
     - title: 'GitHub Repo'
       link: 'https://github.com/Charlie-Hill/ePaper-Stock-Ticker'
