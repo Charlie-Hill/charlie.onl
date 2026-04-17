@@ -45,6 +45,16 @@
     - title: 'GitHub Repo'
       link: 'https://github.com/Charlie-Hill/p5.js-Typescript-Electron-Vite-Boilerplate-Starter-Kit'
 
+- title: 'Visual Studio Code Market News Ticker Extension'
+  description: 'Scrolling news ticker at VS Code window footer with a focus on business/financial news Ticker extension for VS Code'
+  status: 'Complete'
+  thumbnail: 'assets/projects/news_ticker.gif'
+  links:
+    - title: 'GitHub Repo'
+      link: 'https://github.com/Charlie-Hill/VS-Code-Market-News-Ticker-Extension'
+    - title: 'Visual Studio Marketplace (free)'
+      link: 'https://marketplace.visualstudio.com/items?itemName=CharlieHill.market-news-ticker'
+
 - title: 'Personal Blog (blog.charlie.onl)'
   description: 'Blogging site where I write up tutorials, articles or general thoughts. Made with PHP & all blog posts written in Markdown.'
   status: 'Complete'
