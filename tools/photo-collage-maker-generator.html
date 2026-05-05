@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Photo Collage Maker - charlie.onl</title>
+
+    <!-- Google ADSENSE -->
+    <meta name="google-adsense-account" content="ca-pub-7618416130407485">
+
+    <!-- SEO -->
+    <meta name="description" content="Free online photo collage maker. Create mosaic and grid collages instantly in your browser no upload, no account needed. Export as PNG for Instagram, wallpapers, prints and more.">
+    <meta name="keywords" content="free photo collage maker, online collage maker, mosaic collage, photo grid maker, instagram collage, photo layout tool, collage maker no sign up, free collage generator, drag and drop collage, photo mosaic tool, BSP collage layout, turbo collage alternative, free image grid maker, photo collage export PNG, collage maker browser">
+    <meta name="author" content="charlie.onl">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Free Photo Collage Maker - charlie.onl">
+    <meta property="og:description" content="Create beautiful photo collages and mosaics instantly in your browser. Drag, drop, shuffle, export. No account needed. Completely free.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://charlie.onl/tools/photo-collage-maker-generator">
+    <meta property="og:site_name" content="Charlie onl">
+    <meta property="og:image" content="../assets/tools/photo-collage-maker-generator-preview-tight.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free Photo Collage Maker - charlie.onl">
+    <meta name="twitter:description" content="Drag and drop your photos to create mosaic or grid collages. Export as PNG. Completely free, no sign-up required.">
+
+    <link rel="canonical" href="https://charlie.onl/tools/photo-collage-maker-generator">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../assets/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../assets/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../site.webmanifest">
+    <link rel="mask-icon" href="../assets/safari-pinned-tab.svg" color="#5bbad5">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+        html, body {
+            background-color: #3083b6;
+            font-family: 'Varela Round', sans-serif;
+        }
+        #app {
+            display: flex;
+            height: 560px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #d1d5db;
+            background: #fff;
+        }
+        #sidebar {
+            width: 190px;
+            min-width: 190px;
+            border-right: 1px solid #e5e7eb;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            overflow-y: auto;
+            background: #f9fafb;
+        }
+        #canvas-area {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e5e7eb;
+            padding: 16px;
+            position: relative;
+        }
+        #drop-zone {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        #drop-zone.hidden { opacity: 0; }
+        canvas {
+            display: block;
+            border-radius: 4px;
+            max-width: 100%;
+            max-height: 100%;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .ctrl-label {
+            font-size: 11px;
+            color: #6b7280;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .ctrl { display: flex; flex-direction: column; gap: 5px; }
+        .row { display: flex; align-items: center; justify-content: space-between; }
+        .val { font-size: 12px; color: #111827; font-weight: 600; min-width: 28px; text-align: right; }
+        input[type=range] { width: 100%; accent-color: #3083b6; }
+        input[type=color] {
+            width: 100%; height: 28px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 2px;
+            background: #fff;
+            cursor: pointer;
+        }
+        select {
+            width: 100%; font-size: 12px;
+            padding: 4px 6px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            background: #fff;
+            color: #111827;
+        }
+        .tool-btn {
+            width: 100%; padding: 7px 6px; font-size: 12px;
+            border: 1px solid #d1d5db; border-radius: 6px;
+            background: #fff; color: #374151; cursor: pointer;
+            transition: background 0.15s;
+        }
+        .tool-btn:hover { background: #f3f4f6; }
+        .tool-btn.primary {
+            background: #3083b6; color: #fff;
+            border-color: #3083b6; font-weight: 600;
+        }
+        .tool-btn.primary:hover { background: #2567a0; }
+        .divider { border: none; border-top: 1px solid #e5e7eb; }
+        #img-count { font-size: 11px; color: #9ca3af; text-align: center; }
+        #file-input { display: none; }
+        .drop-icon {
+            width: 48px; height: 48px;
+            border: 2px dashed #9ca3af;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Free Photo Collage Maker",
+        "url": "https://charlie.onl/tools/photo-collage-maker-generator",
+        "description": "A free browser-based photo collage and mosaic maker. Drag and drop images, choose mosaic or grid layout, adjust borders, shuffle, and export as PNG.",
+        "applicationCategory": "PhotographyApplication",
+        "operatingSystem": "Web",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "GBP"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Charlie onl"
+        }
+    }
+    </script>
+</head>
+<body>
+
+<div class="flex mx-auto flex-col items-left px-8 md:px-32 py-24">
+
+    <div class="text-center w-full mb-5">
+        <h1 class="font-bold text-lg mb-2 text-white">Tools</h1>
+        <div class="m-auto w-1/6 h-0.5 bg-green-200 mt-3 mb-2"></div>
+        <a class="text-green-200 hover:text-green-400" href="../">🏠Home🏠</a>
+        <span class="text-white">|</span>
+        <a class="text-green-200 hover:text-green-400" href="https://blog.charlie.onl/" target="__blank">📝Blog📝</a>
+        <span class="text-white">|</span>
+        <a class="text-green-200 hover:text-green-400" href="../projects.html">📁Projects📁</a>
+        <span class="text-white">|</span>
+        <a class="text-green-200 hover:text-green-400" href="../about.html">🧑‍💻About🧑‍💻</a>
+    </div>
+
+    <div class="bg-blue-100 p-2 rounded-md">
+
+        <div class="mb-8">
+            <div class="text-center">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Free Photo Collage Maker</h2>
+            </div>
+            <br />
+
+            <p class="text-gray-700 text-md leading-relaxed max-w-3xl mx-auto text-center mb-6">
+                Drag and drop your photos to instantly create a mosaic or grid collage right in your browser.
+                No account, no upload to a server, no watermarks. Adjust borders, shuffle the layout, pick a canvas
+                size, and export as a PNG when you're happy. Completely free.
+            </p>
+
+            <!-- THE TOOL -->
+            <div class="max-w-4xl mx-auto">
+                <div id="app">
+                    <div id="sidebar">
+                        <div class="ctrl">
+                            <span class="ctrl-label">Canvas size</span>
+                            <select id="preset">
+                                <option value="16:9">16:9 landscape</option>
+                                <option value="9:16">9:16 portrait</option>
+                                <option value="1:1" selected>1:1 square</option>
+                                <option value="4:5">4:5 Instagram</option>
+                                <option value="3:2">3:2 photo</option>
+                            </select>
+                        </div>
+                        <div class="ctrl">
+                            <span class="ctrl-label">Layout</span>
+                            <select id="layout-mode">
+                                <option value="bsp" selected>Mosaic (random)</option>
+                                <option value="grid">Grid</option>
+                            </select>
+                        </div>
+                        <div class="ctrl" id="grid-ctrl" style="display:none;">
+                            <div class="row"><span class="ctrl-label">Columns</span><span class="val" id="cols-val">3</span></div>
+                            <input type="range" id="cols" min="1" max="8" value="3" step="1">
+                            <div class="row"><span class="ctrl-label">Rows</span><span class="val" id="rows-val">3</span></div>
+                            <input type="range" id="rows" min="1" max="8" value="3" step="1">
+                        </div>
+                        <hr class="divider">
+                        <div class="ctrl">
+                            <div class="row"><span class="ctrl-label">Border</span><span class="val" id="border-val">8px</span></div>
+                            <input type="range" id="border-size" min="0" max="40" value="8" step="1">
+                        </div>
+                        <div class="ctrl">
+                            <span class="ctrl-label">Border colour</span>
+                            <input type="color" id="border-color" value="#ffffff">
+                        </div>
+                        <hr class="divider">
+                        <button class="tool-btn" id="shuffle-btn">🔀 Shuffle layout</button>
+                        <button class="tool-btn" id="add-btn">📁 Add images</button>
+                        <button class="tool-btn" id="clear-btn">🗑 Clear images</button>
+                        <hr class="divider">
+                        <button class="tool-btn primary" id="export-btn">⬇ Export PNG</button>
+                        <div id="img-count">No images loaded</div>
+                    </div>
+
+                    <div id="canvas-area">
+                        <div id="drop-zone">
+                            <div class="drop-icon">
+                                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11 3v12M7 11l4 4 4-4" stroke="#9ca3af" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M3 17h16" stroke="#9ca3af" stroke-width="1.8" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <span style="font-size:14px; color:#6b7280; font-weight:500;">Drop images here</span>
+                            <span style="font-size:12px; color:#9ca3af;">or click Add images</span>
+                        </div>
+                        <canvas id="c"></canvas>
+                    </div>
+                </div>
+
+                <p class="text-xs text-gray-500 mt-2 text-center">
+                    All processing happens locally in your browser your photos are never uploaded anywhere.
+                </p>
+            </div>
+
+            <!-- HOW TO USE -->
+            <div class="mt-16 max-w-4xl mx-auto bg-gray-500 bg-opacity-20 p-6 rounded-md">
+
+                <section class="mb-8">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">How to use the collage maker</h3>
+                    <ol class="list-decimal list-inside text-gray-700 text-md leading-relaxed space-y-2">
+                        <li>Click <strong>Add images</strong> or drag and drop your photos onto the canvas.</li>
+                        <li>Choose between <strong>Mosaic</strong> (organic, varied cell sizes) or <strong>Grid</strong> (uniform rows and columns).</li>
+                        <li>Pick a canvas size square for Instagram posts, 16:9 for wallpapers, 4:5 for Instagram portrait, and more.</li>
+                        <li>Use <strong>Shuffle layout</strong> to randomise the arrangement until you like it.</li>
+                        <li>Adjust the border size and colour to taste.</li>
+                        <li>Click <strong>Export PNG</strong> to download your finished collage.</li>
+                    </ol>
+                </section>
+
+                <section class="mb-8">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Possible uses</h3>
+                    <ul class="list-disc list-inside text-gray-700 text-md leading-relaxed space-y-2">
+                        <li><strong>Instagram posts:</strong> Combine multiple photos into a single 1:1 or 4:5 post.</li>
+                        <li><strong>Desktop wallpapers:</strong> Use the 16:9 preset and fill it with your favourite shots.</li>
+                        <li><strong>Mood boards:</strong> Arrange inspiration images into a neat layout for a project brief.</li>
+                        <li><strong>Event recaps:</strong> Collate event photos into a single shareable image.</li>
+                        <li><strong>Family albums:</strong> Create a mosaic of holiday or family photos to share or print.</li>
+                    </ul>
+                </section>
+
+                <section class="mb-8">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Privacy</h3>
+                    <p class="text-gray-700 text-md leading-relaxed">
+                        Your images never leave your device. This tool runs entirely in your browser using the HTML5 Canvas API
+                        no files are uploaded to any server, and nothing is stored anywhere. You can use it offline once the
+                        page has loaded.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">About this tool</h3>
+                    <p class="text-gray-700 text-md leading-relaxed">
+                        Built by charlie.onl as a free, open alternative to paid collage software. The layout engine and
+                        interface were developed with assistance from AI (Claude by Anthropic), used to accelerate the
+                        implementation of the BSP algorithm and canvas rendering logic. The concept, design decisions,
+                        and product direction are my own.
+                    </p>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<input type="file" id="file-input" multiple accept="image/*">
+
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const canvasArea = document.getElementById('canvas-area');
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+const imgCountEl = document.getElementById('img-count');
+
+let images = [];
+let state = {
+    preset: '1:1',
+    mode: 'bsp',
+    border: 8,
+    borderColor: '#ffffff',
+    cols: 3,
+    rows: 3,
+    seed: Math.random()
+};
+
+function getCanvasDims() {
+    const area = canvasArea.getBoundingClientRect();
+    const maxW = area.width - 32;
+    const maxH = area.height - 32;
+    const [wa, ha] = state.preset.split(':').map(Number);
+    const ratio = wa / ha;
+    let w = maxW, h = maxW / ratio;
+    if (h > maxH) { h = maxH; w = maxH * ratio; }
+    return [Math.floor(w), Math.floor(h)];
+}
+
+function seededRand(seed) {
+    let s = seed;
+    return function() {
+        s = (s * 9301 + 49297) % 233280;
+        return s / 233280;
+    };
+}
+
+function bsp(rect, depth, rand, cells) {
+    const { x, y, w, h } = rect;
+    const minSize = 0.18;
+    if (depth === 0 || (w < minSize && h < minSize)) {
+        cells.push(rect);
+        return;
+    }
+    const splitH = w > h;
+    const min = 0.35, max = 0.65;
+    const split = min + rand() * (max - min);
+    if (splitH) {
+        bsp({ x, y, w: w * split, h }, depth - 1, rand, cells);
+        bsp({ x: x + w * split, y, w: w * (1 - split), h }, depth - 1, rand, cells);
+    } else {
+        bsp({ x, y, w, h: h * split }, depth - 1, rand, cells);
+        bsp({ x, y: y + h * split, w, h: h * (1 - split) }, depth - 1, rand, cells);
+    }
+}
+
+function buildBSPLayout(n) {
+    const rand = seededRand(state.seed * 10000);
+    const depth = Math.ceil(Math.log2(Math.max(n, 2)));
+    let cells = [];
+    bsp({ x: 0, y: 0, w: 1, h: 1 }, depth, rand, cells);
+
+    while (cells.length < n) {
+        cells.sort((a, b) => (b.w * b.h) - (a.w * a.h));
+        const big = cells.shift();
+        const split = 0.4 + rand() * 0.2;
+        if (big.w > big.h) {
+            cells.push({ x: big.x, y: big.y, w: big.w * split, h: big.h });
+            cells.push({ x: big.x + big.w * split, y: big.y, w: big.w * (1 - split), h: big.h });
+        } else {
+            cells.push({ x: big.x, y: big.y, w: big.w, h: big.h * split });
+            cells.push({ x: big.x, y: big.y + big.h * split, w: big.w, h: big.h * (1 - split) });
+        }
+    }
+
+    while (cells.length > n) {
+        cells.sort((a, b) => (a.w * a.h) - (b.w * b.h));
+        const small = cells.shift();
+        const neighbor = cells.find(c =>
+            Math.abs(c.x - (small.x + small.w)) < 0.001 && Math.abs(c.y - small.y) < 0.001 && Math.abs(c.h - small.h) < 0.001
+        ) || cells.find(c =>
+            Math.abs(c.y - (small.y + small.h)) < 0.001 && Math.abs(c.x - small.x) < 0.001 && Math.abs(c.w - small.w) < 0.001
+        );
+        if (neighbor) {
+            const idx = cells.indexOf(neighbor);
+            cells.splice(idx, 1);
+            cells.push({
+                x: Math.min(small.x, neighbor.x),
+                y: Math.min(small.y, neighbor.y),
+                w: Math.abs(small.x - neighbor.x) < 0.001 ? small.w : small.w + neighbor.w,
+                h: Math.abs(small.y - neighbor.y) < 0.001 ? small.h : small.h + neighbor.h,
+            });
+        } else {
+            cells.push(small);
+            break;
+        }
+    }
+    return cells.slice(0, n);
+}
+
+function buildGridLayout(n, cols, rows) {
+    const cells = [];
+    const cw = 1 / cols, ch = 1 / rows;
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+            if (cells.length >= n) break;
+            cells.push({ x: c * cw, y: r * ch, w: cw, h: ch });
+        }
+    }
+    return cells;
+}
+
+function drawCoverImage(img, px, py, pw, ph) {
+    const ir = img.width / img.height;
+    const cr = pw / ph;
+    let sx, sy, sw, sh;
+    if (ir > cr) {
+        sh = img.height; sw = sh * cr;
+        sx = (img.width - sw) / 2; sy = 0;
+    } else {
+        sw = img.width; sh = sw / cr;
+        sx = 0; sy = (img.height - sh) / 2;
+    }
+    ctx.drawImage(img, sx, sy, sw, sh, px, py, pw, ph);
+}
+
+function render() {
+    const [cw, ch] = getCanvasDims();
+    canvas.width = cw;
+    canvas.height = ch;
+    const b = state.border;
+
+    ctx.fillStyle = state.borderColor;
+    ctx.fillRect(0, 0, cw, ch);
+
+    if (images.length === 0) {
+        ctx.fillStyle = 'rgba(156,163,175,0.15)';
+        ctx.fillRect(0, 0, cw, ch);
+        return;
+    }
+
+    const n = images.length;
+    const cells = state.mode === 'bsp'
+        ? buildBSPLayout(n)
+        : buildGridLayout(n, state.cols, state.rows);
+
+    const rand = seededRand(state.seed * 99999);
+    const order = images.map((_, i) => i).sort(() => rand() - 0.5);
+
+    cells.forEach((cell, i) => {
+        const px = Math.round(cell.x * cw) + b;
+        const py = Math.round(cell.y * ch) + b;
+        const pw = Math.round(cell.w * cw) - b * 2;
+        const ph = Math.round(cell.h * ch) - b * 2;
+        if (pw < 4 || ph < 4) return;
+        drawCoverImage(images[order[i % order.length]], px, py, pw, ph);
+    });
+}
+
+function loadFiles(files) {
+    const toLoad = Array.from(files).filter(f => f.type.startsWith('image/'));
+    if (!toLoad.length) return;
+    let loaded = 0;
+    toLoad.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = e => {
+            const img = new Image();
+            img.onload = () => {
+                images.push(img);
+                loaded++;
+                updateCount();
+                if (loaded === toLoad.length) render();
+            };
+            img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    });
+}
+
+function updateCount() {
+    imgCountEl.textContent = images.length === 0
+        ? 'No images loaded'
+        : `${images.length} image${images.length === 1 ? '' : 's'} loaded`;
+    dropZone.classList.toggle('hidden', images.length > 0);
+}
+
+canvasArea.addEventListener('dragover', e => { e.preventDefault(); canvasArea.style.opacity = '0.75'; });
+canvasArea.addEventListener('dragleave', () => { canvasArea.style.opacity = '1'; });
+canvasArea.addEventListener('drop', e => {
+    e.preventDefault();
+    canvasArea.style.opacity = '1';
+    loadFiles(e.dataTransfer.files);
+});
+
+fileInput.addEventListener('change', e => { loadFiles(e.target.files); fileInput.value = ''; });
+document.getElementById('add-btn').addEventListener('click', () => fileInput.click());
+document.getElementById('shuffle-btn').addEventListener('click', () => { state.seed = Math.random(); render(); });
+document.getElementById('clear-btn').addEventListener('click', () => { images = []; updateCount(); render(); });
+
+document.getElementById('preset').addEventListener('change', e => { state.preset = e.target.value; render(); });
+
+document.getElementById('layout-mode').addEventListener('change', e => {
+    state.mode = e.target.value;
+    const gc = document.getElementById('grid-ctrl');
+    gc.style.display = e.target.value === 'grid' ? 'flex' : 'none';
+    gc.style.flexDirection = 'column';
+    gc.style.gap = '5px';
+    render();
+});
+
+document.getElementById('border-size').addEventListener('input', e => {
+    state.border = parseInt(e.target.value);
+    document.getElementById('border-val').textContent = state.border + 'px';
+    render();
+});
+
+document.getElementById('border-color').addEventListener('input', e => { state.borderColor = e.target.value; render(); });
+document.getElementById('cols').addEventListener('input', e => { state.cols = parseInt(e.target.value); document.getElementById('cols-val').textContent = state.cols; render(); });
+document.getElementById('rows').addEventListener('input', e => { state.rows = parseInt(e.target.value); document.getElementById('rows-val').textContent = state.rows; render(); });
+
+document.getElementById('export-btn').addEventListener('click', () => {
+    const link = document.createElement('a');
+    link.download = 'collage.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+});
+
+window.addEventListener('resize', render);
+render();
+</script>
+
+</body>
+</html>
