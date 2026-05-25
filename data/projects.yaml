@@ -5,6 +5,8 @@
   links:
     - title: 'Visit Site'
       link: 'https://londonmarket.xyz'
+    - title: 'YouTube Demonstration Video'
+      link: 'https://youtu.be/hMHKISNjHLw'
   tags: ['finance', 'web', 'full-stack', 'laravel', 'vue']
 
 - title: 'Random Walk Capital (randomwalkcap.com)'
