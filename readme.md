@@ -26,3 +26,9 @@ This is my portfolio site built entirely from scratch to compile & present work,
         - [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
         - [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
         - [Moonlight](https://marketplace.visualstudio.com/items?itemName=atomiks.moonlight) - (Moonlight II Theme)
+
+
+# Screenshots
+![Screenshot of the portfolio site](./assets/readme_preview.png)
+
+![Screenshot of the projects page](./assets/readme_preview_projects.png)
