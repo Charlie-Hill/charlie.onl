@@ -5,6 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reading List - charlie.onl</title>
+    <meta name="description" content="Charlie Hill's reading list, mostly investing, finance and software development books, with reading progress tracked as I go.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://charlie.onl/books">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://charlie.onl/books">
+    <meta property="og:title" content="Reading List - charlie.onl">
+    <meta property="og:description" content="Charlie Hill's reading list, mostly investing, finance and software development books, with reading progress tracked as I go.">
+    <meta property="og:image" content="https://charlie.onl/assets/portrait.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Reading List - charlie.onl">
+    <meta name="twitter:description" content="Charlie Hill's reading list, mostly investing, finance and software development books, with reading progress tracked as I go.">
+    <meta name="twitter:image" content="https://charlie.onl/assets/portrait.jpg">
+
     <!-- Google ADSENSE -->
     <meta name="google-adsense-account" content="ca-pub-7618416130407485">
 
@@ -39,12 +54,36 @@
       <div class="flex mx-auto flex-col items-center px-8 md:px-32 py-24">
 
         <div class="text-center w-full">
-          <h1 class="font-bold text-lg mb-2 text-white">Reading List</h1>
+          <h1 class="font-bold text-lg mb-2 text-white">Charlie Hill's Reading List</h1>
           <div class="m-auto w-1/6 h-0.5 bg-green-200 mt-3 mb-2"></div>
           <a class="pl-2 text-green-200 hover:text-green-400" href="/">🏠Home🏠</a>
+          <span class="text-white">|</span>
+          <a class="text-green-200 hover:text-green-400" href="https://blog.charlie.onl/" target="__blank">📝Blog📝</a>
+          <span class="text-white">|</span>
+          <a class="text-green-200 hover:text-green-400" href="./projects.html">📁Projects📁</a>
+          <span class="text-white">|</span>
+          <a class="text-green-200 hover:text-green-400" href="./about.html">🧑‍💻About🧑‍💻</a>
+          <span class="text-white">|</span>
+          <a class="text-green-200 hover:text-green-400" href="./tools/">🔧Tools🔧</a>
         </div>
 
-        <div class="flex flex-wrap justify-center -mx-2" x-data="readingInit" x-init="init">
+        <div x-data="readingInit" x-init="init">
+        <ul class="text-gray-200 max-w-2xl mx-auto text-left mt-5 space-y-1" x-show="!loaded">
+          <li>How To Pick Quality Shares — Investing, Finance, Economics</li>
+          <li>Make: Getting Started with p5.js — Coding, Javascript, Graphics &amp; Geometry (finished)</li>
+          <li>If It's Raining in Brazil, Buy Starbucks — Investing, Macroeconomics</li>
+          <li>Thinking, Fast &amp; Slow — Non-Fiction, Economics (backlog)</li>
+          <li>Freakonomics — Non-Fiction, Economics, Macroeconomics (finished)</li>
+          <li>Shares Made Simple, 3rd Edition — Investing, UK Equity, Beginners (finished)</li>
+          <li>Full-Stack Vue.js 2 and Laravel 5 — Programming, Web Development</li>
+          <li>Effective TypeScript: 62 Specific Ways to Improve Your TypeScript — Programming, Web Development</li>
+          <li>Get Started in Shares: Trading For The First-Time Investor — Investing, UK Equity, Beginners (finished)</li>
+          <li>Free Capital — Biography, UK Equity, Stocks &amp; Shares</li>
+          <li>Bear Market Investing Strategies — Stocks &amp; Shares, Investing, Strategy</li>
+          <li>The Naked Trader's Book of Trading Strategies — Stocks &amp; Shares, Investing, Trading</li>
+        </ul>
+
+        <div class="flex flex-wrap justify-center -mx-2">
           <template x-for="book in readingListData" x-show="loaded">
             <div class="relative cursor-pointer w-1/4 px-4 mb-4 inline-flex flex-col content-center justify-center items-center">
               <div class="block relative px-2">
@@ -54,7 +93,7 @@
 
               <template x-if="book.covers">
                 <a :href="`https://openlibrary.org/isbn/${book.isbn}`" target="_blank">
-                  <img class="shadow-xl" :src="`https://covers.openlibrary.org/b/isbn/${book.isbn}-M.jpg`" alt="">
+                  <img class="shadow-xl" loading="lazy" :src="`https://covers.openlibrary.org/b/isbn/${book.isbn}-M.jpg`" :alt="`${book.title} cover`">
                   
                   <template x-if="book.pagesRead > 0 && !book.complete">
                     <div class="w-full bg-gray-200 dark:bg-gray-700">
@@ -85,11 +124,12 @@
               </template>
               <template x-if="!book.covers">
                 <a :href="`https://openlibrary.org/isbn/${book.isbn}`" target="_blank">
-                  <img src="https://bookstoreromanceday.org/wp-content/uploads/2020/08/book-cover-placeholder.png" alt="" class="shadow-xl h-[180px]">
+                  <img src="https://bookstoreromanceday.org/wp-content/uploads/2020/08/book-cover-placeholder.png" loading="lazy" :alt="`${book.title} cover placeholder`" class="shadow-xl h-[180px]">
                 </a>
               </template>
             </div>
           </template>
+        </div>
         </div>
       </div>
     </body>

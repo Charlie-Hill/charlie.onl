@@ -5,6 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - charlie.onl</title>
+    <meta name="description" content="A selection of software projects by Charlie Hill, including finance tools, games, browser extensions and open-source starter kits.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://charlie.onl/projects">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://charlie.onl/projects">
+    <meta property="og:title" content="Projects - charlie.onl">
+    <meta property="og:description" content="A selection of software projects by Charlie Hill, including finance tools, games, browser extensions and open-source starter kits.">
+    <meta property="og:image" content="https://charlie.onl/assets/portrait.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Projects - charlie.onl">
+    <meta name="twitter:description" content="A selection of software projects by Charlie Hill, including finance tools, games, browser extensions and open-source starter kits.">
+    <meta name="twitter:image" content="https://charlie.onl/assets/portrait.jpg">
+
     <!-- Google ADSENSE -->
     <meta name="google-adsense-account" content="ca-pub-7618416130407485">
 
@@ -28,8 +43,6 @@
       }
     </style>
 
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@2.x.x/dist/alpine.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js" integrity="sha512-CSBhVREyzHAjAFfBlIBakjoRUKp5h7VSweP0InR/pAJyptH7peuhCsqAI/snV+TwZmXZqoUklpXp6R6wMnYf5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
 <body>
 
@@ -38,9 +51,11 @@
       <div class="flex mx-auto flex-col items-center px-8 md:px-32 py-24">
 
         <div class="text-center w-full mb-5">
-          <h1 class="font-bold text-lg mb-2 text-white">Projects</h1>
+          <h1 class="font-bold text-lg mb-2 text-white">Charlie Hill's Projects</h1>
           <div class="m-auto w-1/6 h-0.5 bg-green-200 mt-3 mb-2"></div>
           <a class="text-green-200 hover:text-green-400" href="/">🏠Home🏠</a>
+          <span class="text-white">|</span>
+          <a class="text-green-200 hover:text-green-400" href="./books.html">📚Reading List📚</a>
           <span class="text-white">|</span>
           <a class="text-green-200 hover:text-green-400" href="https://blog.charlie.onl/" target="__blank">📝Blog📝</a>
           <span class="text-white">|</span>
@@ -49,57 +64,102 @@
           <a class="text-green-200 hover:text-green-400" href="./tools/">🔧Tools🔧</a>
         </div>
 
-        <div class="text-center w-full mt-2 grid grid-cols-3 gap-4" x-data="projectsInit" x-init="init">
-          <template x-if="projectsData && projectsCount > 0">
-            <template x-for="project in projectsData" x-show="loaded">
-              <div class="flex flex-col relative px-2 text-gray-200">
-                <!-- Set fixed image size here -->
-                <img :src="project.thumbnail" class="m-auto w-full h-64 object-cover object-bottom shadow-md" alt="Preview">
-                <h4 class="mt-5 font-bold" x-text="project.title"></h4>
-                <div x-text="project.description"></div>
-                <div class="flex align-center justify-center space-x-3">
-                  <template x-for="link in project.links">
-                    <a class="text-green-200 hover:text-green-400 underline" :href="link.link" target="_blank"><span x-text="link.title"></span></a>
-                  </template>
-                </div>
-                <span class="bg-yellow-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600" x-text="project.status"></span>
-              </div>
-            </template>
-            </template>
-          </div>
-          
-          <template x-if="!projectsCount">
-            <div>
-              <h4 class="font-bold text-yellow-100">Coming Soon</h4>
-              <h6 class="text-yellow-200">In the meantime you can check out my <a class="text-green-200 hover:text-green-400 underline" href="https://github.com/charlie-hill" target="_blank">GitHub profile</a></h6>
+        <div class="text-center w-full mt-2 grid grid-cols-3 gap-4">
+          <div class="flex flex-col relative px-2 text-gray-200">
+            <img src="assets/projects/londonmarket.png" class="m-auto w-full h-64 object-cover object-bottom shadow-md" loading="lazy" alt="londonmarket.xyz equity screener interface">
+            <h4 class="mt-5 font-bold">londonmarket.xyz</h4>
+            <div>A web-based equity focused finance terminal. Featuring equity screener, research scraping, daily summaries &amp; data for over 16,000 equities.</div>
+            <div class="flex align-center justify-center space-x-3">
+              <a class="text-green-200 hover:text-green-400 underline" href="https://londonmarket.xyz" target="_blank"><span>Visit Site</span></a>
+              <a class="text-green-200 hover:text-green-400 underline" href="https://youtu.be/hMHKISNjHLw" target="_blank"><span>YouTube Demonstration Video</span></a>
             </div>
-          </template>
+            <span class="bg-yellow-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600">In Development</span>
+          </div>
+
+          <div class="flex flex-col relative px-2 text-gray-200">
+            <img src="assets/projects/randomwalkcap.png" class="m-auto w-full h-64 object-cover object-bottom shadow-md" loading="lazy" alt="Random Walk Capital fictional hedge-fund site">
+            <h4 class="mt-5 font-bold">Random Walk Capital (randomwalkcap.com)</h4>
+            <div>PHP powered fictional hedge-fund testing the "Random Walk Hypothesis". Daily random stock picks with initial capital of $50,000.</div>
+            <div class="flex align-center justify-center space-x-3">
+              <a class="text-green-200 hover:text-green-400 underline" href="https://randomwalkcap.com" target="_blank"><span>Visit Site</span></a>
+            </div>
+            <span class="bg-yellow-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600">Complete</span>
+          </div>
+
+          <div class="flex flex-col relative px-2 text-gray-200">
+            <img src="assets/projects/pong.png" class="m-auto w-full h-64 object-cover object-bottom shadow-md" loading="lazy" alt="Classic Pong game built with TypeScript and p5.js">
+            <h4 class="mt-5 font-bold">Classic Pong Game (Typescript p5.js game)</h4>
+            <div>A simple pong HTML5 game made using Typescript &amp; P5js with a homebrew game engine featuring sound effects &amp; "AI" player two!</div>
+            <div class="flex align-center justify-center space-x-3">
+              <a class="text-green-200 hover:text-green-400 underline" href="https://pong.charlie.onl" target="_blank"><span>View Demo</span></a>
+              <a class="text-green-200 hover:text-green-400 underline" href="https://github.com/Charlie-Hill/Pong-Game---Typescript-P5.js" target="_blank"><span>GitHub Repo</span></a>
+            </div>
+            <span class="bg-yellow-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600">Complete (occasionally updated)</span>
+          </div>
+
+          <div class="flex flex-col relative px-2 text-gray-200">
+            <img src="assets/projects/stock_ticker.jpg" class="m-auto w-full h-64 object-cover object-bottom shadow-md" loading="lazy" alt="Raspberry Pi Zero W e-Paper stock ticker display">
+            <h4 class="mt-5 font-bold">Raspberry Pi Zero W e-Paper Stock Ticker</h4>
+            <div>A Raspberry Pi stock ticker that cycles through selected stocks &amp; displays price information with a Waveshare e-Paper display. Made with Python.</div>
+            <div class="flex align-center justify-center space-x-3">
+              <a class="text-green-200 hover:text-green-400 underline" href="https://github.com/Charlie-Hill/ePaper-Stock-Ticker" target="_blank"><span>GitHub Repo</span></a>
+              <a class="text-green-200 hover:text-green-400 underline" href="https://www.youtube.com/watch?v=EPe9F5etSSY" target="_blank"><span>YouTube Video Demo</span></a>
+            </div>
+            <span class="bg-yellow-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600">Complete</span>
+          </div>
+
+          <div class="flex flex-col relative px-2 text-gray-200">
+            <img src="assets/projects/p5-electron-example.gif" class="m-auto w-full h-64 object-cover object-bottom shadow-md" loading="lazy" alt="P5.js, TypeScript, Vite and Electron boilerplate starter kit demo">
+            <h4 class="mt-5 font-bold">P5.js Typescript, Vite &amp; Electron Boilerplate Starter Kit</h4>
+            <div>Boilerplate project that packages the p5.js library within a Typescript app that bundles with Vite and can be packaged as an Electron App</div>
+            <div class="flex align-center justify-center space-x-3">
+              <a class="text-green-200 hover:text-green-400 underline" href="https://github.com/Charlie-Hill/p5.js-Typescript-Electron-Vite-Boilerplate-Starter-Kit" target="_blank"><span>GitHub Repo</span></a>
+            </div>
+            <span class="bg-yellow-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600">Complete</span>
+          </div>
+
+          <div class="flex flex-col relative px-2 text-gray-200">
+            <img src="assets/projects/news_ticker.gif" class="m-auto w-full h-64 object-cover object-bottom shadow-md" loading="lazy" alt="VS Code Market News Ticker extension in the editor footer">
+            <h4 class="mt-5 font-bold">Visual Studio Code Market News Ticker Extension</h4>
+            <div>Scrolling news ticker at VS Code window footer with a focus on business/financial news Ticker extension for VS Code</div>
+            <div class="flex align-center justify-center space-x-3">
+              <a class="text-green-200 hover:text-green-400 underline" href="https://github.com/Charlie-Hill/VS-Code-Market-News-Ticker-Extension" target="_blank"><span>GitHub Repo</span></a>
+              <a class="text-green-200 hover:text-green-400 underline" href="https://marketplace.visualstudio.com/items?itemName=CharlieHill.market-news-ticker" target="_blank"><span>Visual Studio Marketplace (free)</span></a>
+            </div>
+            <span class="bg-yellow-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600">Complete</span>
+          </div>
+
+          <div class="flex flex-col relative px-2 text-gray-200">
+            <img src="assets/projects/blog.charlie.onl.png" class="m-auto w-full h-64 object-cover object-bottom shadow-md" loading="lazy" alt="Personal blog at blog.charlie.onl">
+            <h4 class="mt-5 font-bold">Personal Blog (blog.charlie.onl)</h4>
+            <div>Blogging site where I write up tutorials, articles or general thoughts. Made with PHP &amp; all blog posts written in Markdown.</div>
+            <div class="flex align-center justify-center space-x-3">
+              <a class="text-green-200 hover:text-green-400 underline" href="https://blog.charlie.onl" target="_blank"><span>Visit Site</span></a>
+            </div>
+            <span class="bg-yellow-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600">Complete</span>
+          </div>
+
+          <div class="flex flex-col relative px-2 text-gray-200">
+            <img src="assets/tools/favicon-from-url-preview.png" class="m-auto w-full h-64 object-cover object-bottom shadow-md" loading="lazy" alt="Favicon from URL tool preview">
+            <h4 class="mt-5 font-bold">Favicon image from URL</h4>
+            <div>Get a favicon image from URL, useful for obtaining images of company logos without needing download</div>
+            <div class="flex align-center justify-center space-x-3">
+              <a class="text-green-200 hover:text-green-400 underline" href="/tools/favicon-from-url.html" target="_blank"><span>View Tool</span></a>
+            </div>
+            <span class="bg-yellow-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600">Complete</span>
+          </div>
+
+          <div class="flex flex-col relative px-2 text-gray-200">
+            <img src="assets/projects/charlie.onl.png" class="m-auto w-full h-64 object-cover object-bottom shadow-md" loading="lazy" alt="charlie.onl portfolio website homepage">
+            <h4 class="mt-5 font-bold">Portfolio Website (charlie.onl)</h4>
+            <div>My portfolio site built entirely from scratch to compile &amp; present work, projects and more</div>
+            <div class="flex align-center justify-center space-x-3">
+              <a class="text-green-200 hover:text-green-400 underline" href="https://github.com/Charlie-Hill/charlie.onl" target="_blank"><span>GitHub Repo</span></a>
+            </div>
+            <span class="bg-yellow-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600">Complete</span>
+          </div>
         </div>
       </div>
-
-      <script type="text/javascript">
-        const projectsInit = {
-          loaded: false,
-          projectsData: [],
-          projectsCount: 0,
-
-          async init () {
-            const data = await this.fetchProjects()
-            if (data) {
-              this.projectsData = data
-              this.projectsCount = data.length
-              this.loaded = true
-            }
-          },
-
-          async fetchProjects () {
-            const data = await fetch(`./data/projects.yaml`).then(res => res.text())
-            const yaml = jsyaml.load(data)
-
-            return yaml
-          }
-        }
-      </script>
     </body>
 </body>
 </html>

@@ -5,6 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - charlie.onl</title>
+    <meta name="description" content="A bit about Charlie Hill, a software developer and technical account manager based in the United Kingdom.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://charlie.onl/about">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://charlie.onl/about">
+    <meta property="og:title" content="About - charlie.onl">
+    <meta property="og:description" content="A bit about Charlie Hill, a software developer and technical account manager based in the United Kingdom.">
+    <meta property="og:image" content="https://charlie.onl/assets/portrait.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="About - charlie.onl">
+    <meta name="twitter:description" content="A bit about Charlie Hill, a software developer and technical account manager based in the United Kingdom.">
+    <meta name="twitter:image" content="https://charlie.onl/assets/portrait.jpg">
+
     <!-- Google ADSENSE -->
     <meta name="google-adsense-account" content="ca-pub-7618416130407485">
 
@@ -14,6 +29,26 @@
     <link rel="icon" type="image/png" href="./assets/favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="./site.webmanifest">
     <link rel="mask-icon" href="./assets/safari-pinned-tab.svg" color="#5bbad5">
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Charlie Hill",
+        "url": "https://charlie.onl/",
+        "image": "https://charlie.onl/assets/portrait.jpg",
+        "jobTitle": "Software Developer",
+        "email": "mailto:me@charlie.onl",
+        "sameAs": [
+            "https://github.com/charlie-hill",
+            "https://www.linkedin.com/in/charliehilluk/",
+            "https://www.instagram.com/realcharliehill/",
+            "https://www.youtube.com/@realcharliehill",
+            "https://blog.charlie.onl/"
+        ]
+    }
+    </script>
 
     <!-- Styles -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
@@ -36,9 +71,11 @@
     <div class="flex mx-auto flex-col items-left px-8 md:px-32 py-24">
 
         <div class="text-center w-full mb-5">
-            <h1 class="font-bold text-lg mb-2 text-white">About</h1>
+            <h1 class="font-bold text-lg mb-2 text-white">About Charlie Hill</h1>
             <div class="m-auto w-1/6 h-0.5 bg-green-200 mt-3 mb-2"></div>
             <a class="text-green-200 hover:text-green-400" href="/">🏠Home🏠</a>
+            <span class="text-white">|</span>
+            <a class="text-green-200 hover:text-green-400" href="./books.html">📚Reading List📚</a>
             <span class="text-white">|</span>
             <a class="text-green-200 hover:text-green-400" href="https://blog.charlie.onl/" target="__blank">📝Blog📝</a>
             <span class="text-white">|</span>
@@ -51,7 +88,7 @@
 
             <div class="flex flex-col items-center mb-4">
                 <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-green-200 shadow-lg">
-                    <img src="https://avatars.githubusercontent.com/u/30829462?v=4" alt="Charlie Hill Portrait" class="w-full h-full object-cover">
+                    <img src="./assets/portrait.jpg" alt="Charlie Hill Portrait" class="w-full h-full object-cover">
                 </div>
             </div>
 

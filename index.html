@@ -14,6 +14,19 @@
 	<meta name="language" content="English">
 	<meta name="revisit-after" content="1 days">
 	<meta name="author" content="Charlie Hill">
+    <link rel="canonical" href="https://charlie.onl/">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://charlie.onl/">
+    <meta property="og:title" content="Charlie Hill's Portfolio">
+    <meta property="og:description" content="charlie.onl is a portfolio site for United Kingdom (UK) Bedfordshire/London based full-stack software developer Charlie Hill.">
+    <meta property="og:image" content="https://charlie.onl/assets/portrait.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Charlie Hill's Portfolio">
+    <meta name="twitter:description" content="charlie.onl is a portfolio site for United Kingdom (UK) Bedfordshire/London based full-stack software developer Charlie Hill.">
+    <meta name="twitter:image" content="https://charlie.onl/assets/portrait.jpg">
+
     <!-- Google ADSENSE -->
     <meta name="google-adsense-account" content="ca-pub-7618416130407485">
 
@@ -21,13 +34,38 @@
     <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="./assets/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="./assets/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="./assets/site.webmanifest">
+    <link rel="manifest" href="./site.webmanifest">
     <link rel="mask-icon" href="./assets/safari-pinned-tab.svg" color="#5bbad5">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="preload" crossorigin>
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Charlie Hill",
+        "url": "https://charlie.onl/",
+        "image": "https://charlie.onl/assets/portrait.jpg",
+        "jobTitle": "Software Developer",
+        "email": "mailto:me@charlie.onl",
+        "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Bedfordshire",
+            "addressCountry": "GB"
+        },
+        "sameAs": [
+            "https://github.com/charlie-hill",
+            "https://www.linkedin.com/in/charliehilluk/",
+            "https://www.instagram.com/realcharliehill/",
+            "https://www.youtube.com/@realcharliehill",
+            "https://blog.charlie.onl/"
+        ]
+    }
+    </script>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
@@ -75,7 +113,7 @@
     <div class="flex justify-center items-center flex-col">
         <div class="flex">
             <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-green-200 shadow-lg flex-center inline-flex justify-center align-center mr-5">
-                <img src="https://avatars.githubusercontent.com/u/30829462?v=4" alt="Charlie Hill Portrait" class="w-full h-full object-cover">
+                <img src="./assets/portrait.jpg" alt="Charlie Hill Portrait" class="w-full h-full object-cover">
             </div>
             <div class="select-none text-center">
                 <h1 class="text-7xl text-white font-bold">Charlie Hill</h1>
@@ -121,8 +159,8 @@
         <div class="w-1/4 h-0.5 bg-green-200 mt-3"></div>
 
         <div class="flex flex-row justify-center items-center mt-5">
-            <!-- <a class="text-green-200 hover:text-green-400 pr-2" href="./books.html">📚Reading List📚</a> -->
-            <!-- <span class="text-white">|</span> -->
+            <a class="text-green-200 hover:text-green-400 pr-2" href="./books.html">📚Reading List📚</a>
+            <span class="text-white">|</span>
             <a class="pl-2 text-green-200 hover:text-green-400 pr-2" href="./projects.html">📁Projects📁</a>
             <span class="text-white">|</span>
             <a class="pl-2 text-green-200 hover:text-green-400" href="https://blog.charlie.onl/" target="__blank">📝Blog📝</a>
